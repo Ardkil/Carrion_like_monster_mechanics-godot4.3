@@ -1,5 +1,5 @@
 # Carrion_like_monster_mechanics-godot4.3
-source code of a 48 hour gamejam game where i remade controls like carrion, you can check it all out, or just the monster file in order to learn how it is done in code, I will also be explaining the logic behind it here
+source code of a 48 hour gamejam game where i remade controls like carrion, you can check it all out, or just the **monster** file in order to learn how it is done in code, I will also be explaining the logic behind it here. No ai was used to code this project
 
 https://github.com/user-attachments/assets/edd5eba2-68d5-461a-b2b8-51a7e9c5782f
 
