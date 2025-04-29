@@ -5,9 +5,13 @@ For the body part, each body is connected by super aggressive springs in the ord
 
 for it to look like a whole creature, each body part draws a vein to the closest to them initially, and a random body part later
 
-then the body part closest to the mouse is selected as the leader (the one the eye follows), the leader casts a ray towards the mouse, the body parts that can see the target will try to move towards it if pressing the left mouse. the bodies that can't see will follow the others due to the springs
+then the body part closest to the mouse is selected as the leader (the one the eye follows), the leader casts a ray towards the mouse, the body parts that can see the target will try to move towards it if pressing the left mouse. the bodies that can't see will follow the others due to the springs. The leader must be choosen, so that the legion of body parts will not disconnect on a sharp turn since only the parts that can see the target will follow it, and the others will lag behind them
 
 Each body part sends out rays in a circle in order to get points where they can send tentacles, then a random point is chosen (it might be better to rate points depending on their distance to the mouse, but it felt good enough to pick randomly so I didn't dabble on it). If the distance between the body part and the tentacle exceeds a certain value, this process repeats. The tentacles are drawn with a line that has a shader adds sin wave to it
 If you are idle, all body parts are pulled towards the tentacles they have shot
 
 for the pick up part, within a certain range, a rope like line created with verlet integration is drawn to a pickupable object, then the object is added as our item and is moved towards the mouse within the range
+
+
+https://github.com/user-attachments/assets/edd5eba2-68d5-461a-b2b8-51a7e9c5782f
+
