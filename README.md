@@ -13,3 +13,5 @@ Each body part sends out rays in a circle in order to get points where they can 
 If you are idle, all body parts are pulled towards the tentacles they have shot
 
 for the pick up part, within a certain range, a rope like line created with verlet integration is drawn to a pickupable object, then the object is added as our item and is moved towards the mouse within the range
+
+You can also play the game on itch.io on browser https://ardkil.itch.io/subject-free
