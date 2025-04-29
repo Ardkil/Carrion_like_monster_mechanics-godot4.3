@@ -1,0 +1,248 @@
+[gd_scene load_steps=19 format=3 uid="uid://dc8hv6uyk5dal"]
+
+[ext_resource type="Texture2D" uid="uid://c14040ray1358" path="res://assets/theguards_ggog-sheet.png" id="1_bi0ye"]
+[ext_resource type="Script" path="res://scripts_not_monster/guard.gd" id="1_ndukt"]
+[ext_resource type="PackedScene" uid="uid://cjp57gq2wnvud" path="res://effects/guard_blood.tscn" id="2_wpeyn"]
+[ext_resource type="Texture2D" uid="uid://dw525lfym8qeq" path="res://assets/guardgun_ggog.png" id="3_pjp4w"]
+[ext_resource type="PackedScene" uid="uid://dfjmx1dtkgeb1" path="res://pickupables/dead_guard.tscn" id="3_wbtbe"]
+[ext_resource type="Texture2D" uid="uid://bcbpv1ua7k60d" path="res://assets/bulletgog.png" id="6_ldof1"]
+[ext_resource type="Texture2D" uid="uid://cfefktwikayln" path="res://assets/turret2effect.png" id="7_v6tik"]
+[ext_resource type="AudioStream" uid="uid://bd2i0badwrddo" path="res://sounds/turret-fire-85337.mp3" id="8_kyymx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pb53"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(0, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqe7q"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(63, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbbjx"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(126, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llfh3"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(189, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24w0a"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(252, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcq4x"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(315, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbqw6"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(378, 0, 63, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gljt7"]
+atlas = ExtResource("1_bi0ye")
+region = Rect2(441, 0, 63, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5inw5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pb53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqe7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbbjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llfh3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24w0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcq4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbqw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gljt7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fyf4x"]
+radius = 4.0
+height = 40.0
+
+[node name="Guard" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_ndukt")
+death_effect = ExtResource("2_wpeyn")
+death_object = ExtResource("3_wbtbe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5inw5")
+autoplay = "default"
+frame_progress = 0.880658
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_fyf4x")
+
+[node name="GuardgunGgog" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 12)
+rotation = -0.204695
+texture = ExtResource("3_pjp4w")
+offset = Vector2(9, -3)
+
+[node name="shoot_effect" type="Node2D" parent="GuardgunGgog"]
+position = Vector2(0.0372169, -5.09888)
+
+[node name="GPUParticles2D" type="CPUParticles2D" parent="GuardgunGgog/shoot_effect"]
+position = Vector2(23.7376, 1.23452)
+rotation = -2.1885
+amount = 10
+randomness = 0.5
+texture = ExtResource("6_ldof1")
+direction = Vector2(5, 1)
+spread = 6.82
+gravity = Vector2(0, 200)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="cpup" type="CPUParticles2D" parent="GuardgunGgog/shoot_effect"]
+position = Vector2(25.2912, 1.16522)
+rotation = -0.00491714
+amount = 5
+lifetime = 0.3
+local_coords = true
+texture = ExtResource("7_v6tik")
+gravity = Vector2(0, 20)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+top_level = true
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+top_level = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(200, 0)
+
+[node name="lines" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D2" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D3" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D4" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D5" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D6" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D7" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D8" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D9" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D10" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D11" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D12" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D13" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D14" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D15" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D16" type="Line2D" parent="lines"]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(0, 0.729412, 0, 0.156863)
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="head" type="Marker2D" parent="."]
+position = Vector2(1, -7)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1.13543, -8.87191)
+rotation = -0.336359
+stream = ExtResource("8_kyymx")
+volume_db = -80.0
+autoplay = true
+bus = &"sfx"

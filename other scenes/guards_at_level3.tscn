@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=3 uid="uid://cplxorr5awqe5"]
+
+[ext_resource type="PackedScene" uid="uid://dc8hv6uyk5dal" path="res://enemies/guard.tscn" id="1_77kcj"]
+[ext_resource type="PackedScene" uid="uid://pss6sd1w3oja" path="res://enemies/turret.tscn" id="2_6nr3w"]
+
+[node name="guards" type="Node2D"]
+
+[node name="Guard11" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(1530, 196)
+
+[node name="Marker2D" parent="Guard11" index="3"]
+position = Vector2(1622, 210)
+
+[node name="Marker2D2" parent="Guard11" index="4"]
+position = Vector2(1546, 211)
+
+[node name="Guard12" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(1859, -143)
+
+[node name="Marker2D" parent="Guard12" index="3"]
+position = Vector2(1877, -123)
+
+[node name="Marker2D2" parent="Guard12" index="4"]
+position = Vector2(1690, -58)
+
+[node name="Guard13" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(1622, -291)
+
+[node name="Marker2D" parent="Guard13" index="3"]
+position = Vector2(1697, -250)
+
+[node name="Marker2D2" parent="Guard13" index="4"]
+position = Vector2(1638, -249)
+
+[node name="Guard14" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(1526, -397)
+
+[node name="AnimatedSprite2D" parent="Guard14" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard14" index="3"]
+position = Vector2(1582, -377)
+
+[node name="Marker2D2" parent="Guard14" index="4"]
+position = Vector2(1476, -378)
+
+[node name="Guard15" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(780, -404)
+
+[node name="AnimatedSprite2D" parent="Guard15" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard15" index="3"]
+position = Vector2(1420, -375)
+
+[node name="Marker2D2" parent="Guard15" index="4"]
+position = Vector2(560, -372)
+
+[node name="Guard16" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(860, -408)
+
+[node name="AnimatedSprite2D" parent="Guard16" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard16" index="3"]
+position = Vector2(1420, -375)
+
+[node name="Marker2D2" parent="Guard16" index="4"]
+position = Vector2(560, -372)
+
+[node name="Guard17" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(962, -401)
+
+[node name="AnimatedSprite2D" parent="Guard17" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard17" index="3"]
+position = Vector2(1420, -375)
+
+[node name="Marker2D2" parent="Guard17" index="4"]
+position = Vector2(560, -372)
+
+[node name="Guard18" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(1052, -404)
+
+[node name="AnimatedSprite2D" parent="Guard18" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard18" index="3"]
+position = Vector2(1420, -375)
+
+[node name="Marker2D2" parent="Guard18" index="4"]
+position = Vector2(560, -372)
+
+[node name="Guard19" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(1116, -404)
+
+[node name="AnimatedSprite2D" parent="Guard19" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard19" index="3"]
+position = Vector2(1420, -375)
+
+[node name="Marker2D2" parent="Guard19" index="4"]
+position = Vector2(560, -372)
+
+[node name="Guard20" parent="." instance=ExtResource("1_77kcj")]
+position = Vector2(917, -402)
+
+[node name="AnimatedSprite2D" parent="Guard20" index="0"]
+frame_progress = 0.0188177
+
+[node name="Marker2D" parent="Guard20" index="3"]
+position = Vector2(1420, -375)
+
+[node name="Marker2D2" parent="Guard20" index="4"]
+position = Vector2(560, -372)
+
+[node name="turret5" parent="." instance=ExtResource("2_6nr3w")]
+position = Vector2(1276, -480)
+
+[node name="turret6" parent="." instance=ExtResource("2_6nr3w")]
+position = Vector2(599, -480)
+
+[node name="turret7" parent="." instance=ExtResource("2_6nr3w")]
+position = Vector2(1146, -480)
+
+[node name="turret8" parent="." instance=ExtResource("2_6nr3w")]
+position = Vector2(876, -480)
+
+[editable path="Guard11"]
+[editable path="Guard12"]
+[editable path="Guard13"]
+[editable path="Guard14"]
+[editable path="Guard15"]
+[editable path="Guard16"]
+[editable path="Guard17"]
+[editable path="Guard18"]
+[editable path="Guard19"]
+[editable path="Guard20"]

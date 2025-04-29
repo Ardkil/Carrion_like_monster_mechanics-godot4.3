@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw8u6tgb1lkit"]
+
+[ext_resource type="Script" path="res://monster/rope.gd" id="1_g5gns"]
+[ext_resource type="Shader" path="res://monster/tentacle.gdshader" id="2_vhkb3"]
+[ext_resource type="Texture2D" uid="uid://cfcdfbnxncvd4" path="res://assets/tentacleggog3.png" id="3_q7ny5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ui3jn"]
+shader = ExtResource("2_vhkb3")
+shader_parameter/amplitute = 0.1
+shader_parameter/wavelength = 1.0
+shader_parameter/speed = 10.0
+
+[node name="rope" type="Node2D"]
+top_level = true
+script = ExtResource("1_g5gns")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+z_index = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ui3jn")
+points = PackedVector2Array(0, 0, 21, 0)
+texture = ExtResource("3_q7ny5")
+texture_mode = 1
+round_precision = 32

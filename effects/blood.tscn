@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://tayfmsbe7agb"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/emit.gd" id="1_tyesm"]
+[ext_resource type="Texture2D" uid="uid://da03b1focoeoj" path="res://assets/bloodggog.png" id="1_w16ng"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oqb5w"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(3, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+
+[node name="blood" type="GPUParticles2D"]
+z_index = 5
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_oqb5w")
+texture = ExtResource("1_w16ng")
+lifetime = 2.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+script = ExtResource("1_tyesm")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://tphwvitf63jh"]
+
+[ext_resource type="Shader" path="res://effects/explode.gdshader" id="1_pmf23"]
+[ext_resource type="Texture2D" uid="uid://c4s4g6x310n0t" path="res://assets/MonstrousBlob.png" id="2_vdwjy"]
+[ext_resource type="Texture2D" uid="uid://da03b1focoeoj" path="res://assets/bloodggog.png" id="3_xs64t"]
+[ext_resource type="Script" path="res://scripts_not_monster/emit.gd" id="4_7wslo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3eaa"]
+shader = ExtResource("1_pmf23")
+shader_parameter/min_vel = 5.0
+shader_parameter/max_vel = 10.0
+shader_parameter/texture_imitate = ExtResource("2_vdwjy")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = 5
+emitting = false
+amount = 256
+process_material = SubResource("ShaderMaterial_k3eaa")
+texture = ExtResource("3_xs64t")
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+script = ExtResource("4_7wslo")

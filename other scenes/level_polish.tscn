@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://gokafsv150ab"]
+
+[ext_resource type="Shader" path="res://effects/techno.gdshader" id="1_vf5sb"]
+[ext_resource type="Texture2D" uid="uid://b8f0qj0rrm2h5" path="res://SBS - Gradient Texture Pack - 256x256/256x256/Circular/Circular_01-256x256.png" id="2_ygcfg"]
+[ext_resource type="Texture2D" uid="uid://beh8b3xs48g6c" path="res://SBS - Noise Texture Pack - 256x256/256x256/Techno/Techno_02-256x256.png" id="3_4sssb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3gw7t"]
+shader = ExtResource("1_vf5sb")
+shader_parameter/threshold = -0.1
+shader_parameter/techno_noise = ExtResource("3_4sssb")
+shader_parameter/grad = ExtResource("2_ygcfg")
+
+[node name="ColorRect" type="ColorRect"]
+z_index = 1
+material = SubResource("ShaderMaterial_3gw7t")
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.441386, 0.490145, 0.740106, 1)

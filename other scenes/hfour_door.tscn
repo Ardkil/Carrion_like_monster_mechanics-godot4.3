@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://u8xc81gb75ux"]
+
+[ext_resource type="Texture2D" uid="uid://cbu7ur75qq13n" path="res://assets/doorggog.png" id="1_km436"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bakd"]
+size = Vector2(6, 64)
+
+[node name="hfour_door" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Doorggog" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+texture = ExtResource("1_km436")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_5bakd")

@@ -1,0 +1,94 @@
+[gd_scene load_steps=18 format=3 uid="uid://bm02msjpv7m8f"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/attackable.gd" id="1_o851k"]
+[ext_resource type="PackedScene" uid="uid://dmb7frtevjj87" path="res://effects/explosion.tscn" id="2_2glou"]
+[ext_resource type="PackedScene" uid="uid://cbci2kswg7o4o" path="res://pickupables/dead_drone.tscn" id="3_frgjv"]
+[ext_resource type="Texture2D" uid="uid://d0c4sotp0b3pl" path="res://assets/alarm_drone.png" id="4_lpy80"]
+[ext_resource type="Script" path="res://scripts_not_monster/kill_player.gd" id="5_q5vso"]
+[ext_resource type="Shader" path="res://effects/electric_field.gdshader" id="6_2h67f"]
+[ext_resource type="Texture2D" uid="uid://b8f0qj0rrm2h5" path="res://SBS - Gradient Texture Pack - 256x256/256x256/Circular/Circular_01-256x256.png" id="7_3vtlt"]
+[ext_resource type="Texture2D" uid="uid://cjiekbe1cjgar" path="res://SBS - Noise Texture Pack - 256x256/256x256/Cracks/Cracks_01-256x256.png" id="8_xpq5g"]
+[ext_resource type="Texture2D" uid="uid://6n5o7qvq34cq" path="res://SBS - Noise Texture Pack - 256x256/256x256/Cracks/Cracks_07-256x256.png" id="9_vct4w"]
+[ext_resource type="AudioStream" uid="uid://bnhptrrohlot5" path="res://sounds/050633_hat-with-electromagnetic-sensors-43253.mp3" id="10_jwn7l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83djf"]
+atlas = ExtResource("4_lpy80")
+region = Rect2(0, 0, 51, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn824"]
+atlas = ExtResource("4_lpy80")
+region = Rect2(51, 0, 51, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prkfh"]
+atlas = ExtResource("4_lpy80")
+region = Rect2(102, 0, 51, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmc35"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83djf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn824")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prkfh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1rle"]
+radius = 13.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qdg7l"]
+radius = 127.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ovnf"]
+shader = ExtResource("6_2h67f")
+shader_parameter/threshold = 2.055
+shader_parameter/noise = ExtResource("9_vct4w")
+shader_parameter/gradient = ExtResource("8_xpq5g")
+shader_parameter/actual_grad = ExtResource("7_3vtlt")
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_o851k")
+death_effect = ExtResource("2_2glou")
+death_object = ExtResource("3_frgjv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rmc35")
+autoplay = "default"
+frame_progress = 0.152133
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_u1rle")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_q5vso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_qdg7l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_7ovnf")
+offset_left = -169.0
+offset_top = -174.0
+offset_right = 174.0
+offset_bottom = 169.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_jwn7l")
+volume_db = -20.0
+autoplay = true
+max_distance = 512.0
+bus = &"sfx"
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

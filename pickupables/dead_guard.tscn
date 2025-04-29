@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfjmx1dtkgeb1"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/kill_target_on_contact.gd" id="1_66wkb"]
+[ext_resource type="Texture2D" uid="uid://dtli0by01mbq3" path="res://assets/single_guard.png" id="2_m7vvj"]
+[ext_resource type="AudioStream" uid="uid://dt81f8xpq667b" path="res://sounds/man-screaming.mp3" id="3_7bl4t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3c40p"]
+radius = 3.5
+height = 39.0
+
+[node name="dead_turret" type="RigidBody2D"]
+collision_layer = 5
+collision_mask = 5
+contact_monitor = true
+max_contacts_reported = 1
+angular_velocity = 1.74533
+script = ExtResource("1_66wkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 10.5)
+shape = SubResource("CapsuleShape2D_3c40p")
+
+[node name="SingleGuard" type="Sprite2D" parent="."]
+texture = ExtResource("2_m7vvj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7bl4t")
+volume_db = -10.0
+autoplay = true
+bus = &"sfx"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

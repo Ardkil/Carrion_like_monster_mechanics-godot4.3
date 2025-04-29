@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://t8ocrpvrkflp"]
+
+[ext_resource type="PackedScene" uid="uid://bm02msjpv7m8f" path="res://enemies/electric_drone.tscn" id="1_0qymy"]
+
+[node name="drone_container" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_0qymy")]

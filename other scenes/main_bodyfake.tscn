@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3oy71tut8csi"]
+
+[ext_resource type="PackedScene" uid="uid://etbg3ubw0iid" path="res://monster/main_body.tscn" id="1_sr3jw"]
+[ext_resource type="Script" path="res://scripts_not_monster/main_bodyfake.gd" id="2_1qt82"]
+[ext_resource type="PackedScene" uid="uid://0ioxdni2wffp" path="res://monster/body_part.tscn" id="3_kqi4t"]
+
+[node name="main_body" instance=ExtResource("1_sr3jw")]
+script = ExtResource("2_1qt82")
+great_tentacle_length = 50.0
+
+[node name="body_part11" parent="bodies" index="10" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part12" parent="bodies" index="11" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part13" parent="bodies" index="12" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part14" parent="bodies" index="13" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part15" parent="bodies" index="14" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part16" parent="bodies" index="15" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part17" parent="bodies" index="16" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part18" parent="bodies" index="17" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part19" parent="bodies" index="18" instance=ExtResource("3_kqi4t")]
+
+[node name="body_part20" parent="bodies" index="19" instance=ExtResource("3_kqi4t")]

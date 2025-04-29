@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://da5a2kbmfviqe"]
+
+[ext_resource type="Texture2D" uid="uid://d3forhtda8ko2" path="res://assets/cursorggog.png" id="1_j7c1w"]
+[ext_resource type="Script" path="res://scripts_not_monster/follow_mmouse_control.gd" id="2_xymsf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 14.0
+offset_bottom = 14.0
+mouse_filter = 2
+texture = ExtResource("1_j7c1w")
+script = ExtResource("2_xymsf")

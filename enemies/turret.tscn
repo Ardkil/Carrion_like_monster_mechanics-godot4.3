@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://pss6sd1w3oja"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/has_voice.gd" id="1_8ou08"]
+[ext_resource type="Texture2D" uid="uid://os6lo6kqkt74" path="res://assets/turrethandleggog.png" id="1_k060w"]
+[ext_resource type="Texture2D" uid="uid://b2yuxvmviguc3" path="res://assets/turretggog.png" id="2_h6m14"]
+[ext_resource type="Script" path="res://scripts_not_monster/turret_head.gd" id="3_yfh8i"]
+[ext_resource type="Texture2D" uid="uid://bcbpv1ua7k60d" path="res://assets/bulletgog.png" id="4_2ssg5"]
+[ext_resource type="Script" path="res://scripts_not_monster/attackable.gd" id="4_x5or0"]
+[ext_resource type="Texture2D" uid="uid://cfefktwikayln" path="res://assets/turret2effect.png" id="5_e32y5"]
+[ext_resource type="PackedScene" uid="uid://dmb7frtevjj87" path="res://effects/explosion.tscn" id="5_oqjh2"]
+[ext_resource type="PackedScene" uid="uid://bjbuqkmas1blj" path="res://pickupables/dead_turret.tscn" id="6_jmic0"]
+[ext_resource type="AudioStream" uid="uid://bd2i0badwrddo" path="res://sounds/turret-fire-85337.mp3" id="9_n8pld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtwk1"]
+size = Vector2(24.3515, 16.3774)
+
+[node name="turret" type="Node2D"]
+script = ExtResource("1_8ou08")
+
+[node name="Turrethandleggog" type="Sprite2D" parent="."]
+position = Vector2(4, 16)
+texture = ExtResource("1_k060w")
+
+[node name="Turretggog" type="Sprite2D" parent="." node_paths=PackedStringArray("initial_look", "line")]
+z_index = 1
+position = Vector2(-4, 8)
+rotation = 0.336359
+texture = ExtResource("2_h6m14")
+offset = Vector2(10, 0)
+script = ExtResource("3_yfh8i")
+initial_look = NodePath("../initial_pos")
+line = NodePath("Line2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Turretggog"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_x5or0")
+death_effect = ExtResource("5_oqjh2")
+death_object = ExtResource("6_jmic0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turretggog/StaticBody2D"]
+position = Vector2(9.34388, -4.55144)
+shape = SubResource("RectangleShape2D_qtwk1")
+
+[node name="shoot_effect" type="Node2D" parent="Turretggog"]
+
+[node name="cpup" type="CPUParticles2D" parent="Turretggog/shoot_effect"]
+position = Vector2(24.0215, -0.983464)
+rotation = 0.0200639
+amount = 5
+lifetime = 0.3
+local_coords = true
+texture = ExtResource("5_e32y5")
+gravity = Vector2(0, 100)
+
+[node name="GPUParticles2D2" type="CPUParticles2D" parent="Turretggog/shoot_effect"]
+position = Vector2(22.4174, -2.54134)
+rotation = -2.69098
+amount = 10
+randomness = 0.5
+texture = ExtResource("4_2ssg5")
+direction = Vector2(5, 1)
+spread = 6.82
+gravity = Vector2(0, 200)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+
+[node name="Line2D" type="Line2D" parent="Turretggog"]
+top_level = true
+points = PackedVector2Array(2, 0, 0, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Turretggog"]
+position = Vector2(1.13543, -8.87191)
+rotation = -0.336359
+stream = ExtResource("9_n8pld")
+volume_db = -80.0
+autoplay = true
+bus = &"sfx"
+
+[node name="initial_pos" type="Marker2D" parent="."]
+position = Vector2(36, 22)

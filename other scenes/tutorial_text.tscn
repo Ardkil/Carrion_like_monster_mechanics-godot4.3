@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://djd6ip264vjm5"]
+
+[ext_resource type="FontFile" uid="uid://dhealpj3pel25" path="res://font/LanaPixel.ttf-a194df2d06a83b55b26312d321b898db.fontdata" id="1_t3n7a"]
+
+[node name="tutorial" type="RichTextLabel"]
+offset_right = 140.0
+offset_bottom = 51.0
+theme_override_fonts/normal_font = ExtResource("1_t3n7a")
+text = "Incubate at greater pulpa to grow larger"

@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5rxi0wlp0mfm"]
+
+[ext_resource type="PackedScene" uid="uid://duchxm8ruepfk" path="res://other scenes/spawn_point.tscn" id="1_ft284"]
+[ext_resource type="Texture2D" uid="uid://hv7mk1kmgcv6" path="res://assets/spawn_point_ggog_greater_active.png" id="2_hjnk0"]
+[ext_resource type="Texture2D" uid="uid://civ5fuoxk65hu" path="res://assets/spawn_point_ggog_greater.png" id="3_r7sny"]
+[ext_resource type="Texture2D" uid="uid://dy84nko0aatrc" path="res://assets/tentacleggog4.png" id="4_wf5pq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlyk4"]
+atlas = ExtResource("2_hjnk0")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snr3o"]
+atlas = ExtResource("2_hjnk0")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vigpn"]
+atlas = ExtResource("3_r7sny")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kx81r"]
+atlas = ExtResource("3_r7sny")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgvj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlyk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snr3o")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vigpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kx81r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="spawn_point" instance=ExtResource("1_ft284")]
+size = 20
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_sgvj8")
+animation = &"activated"
+frame_progress = 0.0
+
+[node name="Line2D3" parent="lines" index="0"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D4" parent="lines" index="1"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D5" parent="lines" index="2"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D6" parent="lines" index="3"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D7" parent="lines" index="4"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D8" parent="lines" index="5"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D9" parent="lines" index="6"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D10" parent="lines" index="7"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D11" parent="lines" index="8"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D12" parent="lines" index="9"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D13" parent="lines" index="10"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D14" parent="lines" index="11"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D15" parent="lines" index="12"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D16" parent="lines" index="13"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D17" parent="lines" index="14"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D18" parent="lines" index="15"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D19" parent="lines" index="16"]
+texture = ExtResource("4_wf5pq")
+
+[node name="Line2D20" parent="lines" index="17"]
+texture = ExtResource("4_wf5pq")

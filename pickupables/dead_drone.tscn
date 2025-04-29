@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbci2kswg7o4o"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/kill_target_on_contact.gd" id="1_ve56w"]
+[ext_resource type="Texture2D" uid="uid://d0c4sotp0b3pl" path="res://assets/alarm_drone.png" id="2_6dl35"]
+[ext_resource type="AudioStream" uid="uid://ibap1dmdub3b" path="res://sounds/turret_explode.mp3" id="3_i2mm3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ca7ld"]
+radius = 8.5
+height = 37.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdu3c"]
+atlas = ExtResource("2_6dl35")
+region = Rect2(0, 0, 51, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bcynw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdu3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="dead_drone" type="RigidBody2D"]
+collision_layer = 5
+collision_mask = 5
+contact_monitor = true
+max_contacts_reported = 1
+linear_velocity = Vector2(10, -5)
+script = ExtResource("1_ve56w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+rotation = 1.59302
+shape = SubResource("CapsuleShape2D_ca7ld")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bcynw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i2mm3")
+volume_db = -6.0
+autoplay = true
+bus = &"sfx"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

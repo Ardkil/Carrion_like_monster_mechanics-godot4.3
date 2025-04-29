@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://0ioxdni2wffp"]
+
+[ext_resource type="Texture2D" uid="uid://c4s4g6x310n0t" path="res://assets/MonstrousBlob.png" id="1_4owrf"]
+[ext_resource type="Script" path="res://monster/body_part.gd" id="1_tc4se"]
+[ext_resource type="Texture2D" uid="uid://dld6de8taown5" path="res://assets/tentacleggog.png" id="3_4m2e4"]
+[ext_resource type="Shader" path="res://monster/tentacle.gdshader" id="3_jjbc0"]
+[ext_resource type="Texture2D" uid="uid://bdniilfuma82v" path="res://assets/tentacleggog2.png" id="5_x07et"]
+[ext_resource type="Texture2D" uid="uid://c1ddsmftjush6" path="res://assets/Attack_tentacleggog.png" id="6_u3vtn"]
+[ext_resource type="AudioStream" uid="uid://dgcluxjquv2t7" path="res://sounds/tentacle_squish.mp3" id="7_ubhr2"]
+[ext_resource type="AudioStream" uid="uid://b6jrih1r4drb1" path="res://sounds/hit_tentacle.mp3" id="8_mpi3x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mfp8b"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yceew"]
+radius = 5.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l0v1p"]
+shader = ExtResource("3_jjbc0")
+shader_parameter/amplitute = 0.14
+shader_parameter/wavelength = 1.5
+shader_parameter/speed = 1.5
+
+[node name="body_part" type="RigidBody2D"]
+z_index = 2
+collision_layer = 129
+collision_mask = 129
+physics_material_override = SubResource("PhysicsMaterial_mfp8b")
+gravity_scale = 0.2
+angular_damp = 15.0
+script = ExtResource("1_tc4se")
+tentacle_length = 110.0
+attack_tentacle_length = 120.0
+
+[node name="MonstrousBlob" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("1_4owrf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yceew")
+
+[node name="Worm" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("..")
+bias = 0.9
+disable_collision = false
+length = 5.0
+stiffness = 64.0
+
+[node name="Main" type="DampedSpringJoint2D" parent="."]
+node_a = NodePath("..")
+bias = 0.2
+disable_collision = false
+length = 8.0
+stiffness = 64.0
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_l0v1p")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("3_4m2e4")
+texture_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="."]
+top_level = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_l0v1p")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("3_4m2e4")
+texture_mode = 1
+
+[node name="Line2D3" type="Line2D" parent="."]
+top_level = true
+texture_repeat = 2
+material = SubResource("ShaderMaterial_l0v1p")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("5_x07et")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="attack" type="Line2D" parent="."]
+visible = false
+top_level = true
+points = PackedVector2Array(0, 0, 37, 0)
+width = 3.0
+texture = ExtResource("6_u3vtn")
+texture_mode = 2
+
+[node name="squish" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ubhr2")
+volume_db = -20.0
+bus = &"sfx"
+
+[node name="tentacle_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_mpi3x")
+volume_db = -5.0
+bus = &"sfx"

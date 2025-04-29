@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://w3n6gpbchh66"]
+
+[ext_resource type="PackedScene" uid="uid://dj7xu40ufainm" path="res://enemies/guard_suicide_bomber.tscn" id="1_qb5nq"]
+
+[node name="SuicideGuards" type="Node2D"]
+
+[node name="Guard_suicide_bomber14" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1295, -408)
+
+[node name="Guard_suicide_bomber15" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1259, -409)
+
+[node name="Guard_suicide_bomber16" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1230, -410)
+
+[node name="Guard_suicide_bomber17" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1345, -441)
+
+[node name="Guard_suicide_bomber18" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1397, -416)
+
+[node name="Guard_suicide_bomber19" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1161, -410)
+
+[node name="Guard_suicide_bomber20" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1117, -434)
+
+[node name="Guard_suicide_bomber21" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1070, -402)
+
+[node name="Guard_suicide_bomber22" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1046, -436)
+
+[node name="Guard_suicide_bomber23" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1197, -428)
+
+[node name="Guard_suicide_bomber24" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-1008, -413)
+
+[node name="Guard_suicide_bomber25" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-973, -428)
+
+[node name="Guard_suicide_bomber26" parent="." instance=ExtResource("1_qb5nq")]
+position = Vector2(-934, -412)

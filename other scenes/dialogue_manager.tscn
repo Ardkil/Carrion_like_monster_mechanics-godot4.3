@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://pswqbxir4kpu"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/dialogue_manager.gd" id="1_uhxsx"]
+[ext_resource type="StyleBox" uid="uid://bj4mvdqosai1p" path="res://dialogue_manager.tres" id="2_kfhla"]
+[ext_resource type="FontFile" uid="uid://dhealpj3pel25" path="res://font/LanaPixel.ttf-a194df2d06a83b55b26312d321b898db.fontdata" id="3_24oia"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_uhxsx")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 70.0
+offset_top = 280.0
+offset_right = 516.0
+offset_bottom = 320.0
+theme_override_styles/panel = ExtResource("2_kfhla")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 439.0
+offset_bottom = 37.0
+theme_override_fonts/normal_font = ExtResource("3_24oia")
+bbcode_enabled = true
+text = "[center]asasdsa"
+scroll_active = false

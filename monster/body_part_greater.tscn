@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://e56r2ic0h0pc"]
+
+[ext_resource type="PackedScene" uid="uid://0ioxdni2wffp" path="res://monster/body_part.tscn" id="1_ehhtc"]
+[ext_resource type="Script" path="res://monster/body_part_greater.gd" id="2_k4dso"]
+
+[node name="body_part" instance=ExtResource("1_ehhtc")]
+mass = 100000.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("2_k4dso")
+tentacle_length = 100.0
+attack_tentacle_length = 150.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

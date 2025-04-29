@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://5qp6dlhy4sh8"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/kill_target_on_contact.gd" id="1_ce2i3"]
+[ext_resource type="Texture2D" uid="uid://dhjkvxgokv48y" path="res://assets/door3.png" id="1_rwqh6"]
+[ext_resource type="AudioStream" uid="uid://b6jrih1r4drb1" path="res://sounds/hit_tentacle.mp3" id="3_bpibb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm4n7"]
+size = Vector2(6, 48)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+position = Vector2(2, 0)
+collision_layer = 5
+collision_mask = 5
+mass = 100.0
+contact_monitor = true
+max_contacts_reported = 1
+angular_damp = 10.0
+script = ExtResource("1_ce2i3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_xm4n7")
+
+[node name="Door3" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_rwqh6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_bpibb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,1303 @@
+[gd_scene load_steps=14 format=3 uid="uid://if70r07nykn7"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/spawn_point.gd" id="1_2u8es"]
+[ext_resource type="Texture2D" uid="uid://d25o7i7lic0j3" path="res://assets/greatest_pulpa.png" id="3_vknmt"]
+[ext_resource type="Script" path="res://scripts_not_monster/shoot_all_dir.gd" id="4_pl0du"]
+[ext_resource type="Shader" path="res://monster/tentacle.gdshader" id="5_2jrqj"]
+[ext_resource type="Texture2D" uid="uid://cfcdfbnxncvd4" path="res://assets/tentacleggog3.png" id="6_ohr2t"]
+[ext_resource type="FontFile" uid="uid://dhealpj3pel25" path="res://font/LanaPixel.ttf-a194df2d06a83b55b26312d321b898db.fontdata" id="7_s360j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku5o7"]
+atlas = ExtResource("3_vknmt")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04nwr"]
+atlas = ExtResource("3_vknmt")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evuq6"]
+atlas = ExtResource("3_vknmt")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp3ko"]
+atlas = ExtResource("3_vknmt")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rx3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku5o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04nwr")
+}],
+"loop": true,
+"name": &"activated",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evuq6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp3ko")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jec6l"]
+shader = ExtResource("5_2jrqj")
+shader_parameter/amplitute = 0.14
+shader_parameter/wavelength = 1.5
+shader_parameter/speed = 1.5
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n13pa"]
+radius = 100.0
+height = 260.0
+
+[node name="spawn_point" type="Area2D"]
+script = ExtResource("1_2u8es")
+size = 500
+max_hp = 100000000000
+strength = 1212424
+is_alpha = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0rx3e")
+animation = &"activated"
+autoplay = "default"
+frame_progress = 0.962502
+
+[node name="lines" type="Node2D" parent="."]
+script = ExtResource("4_pl0du")
+tentacles = 90
+
+[node name="Line2D3" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D4" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D5" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D6" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D7" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D8" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D9" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D10" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D11" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D12" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D13" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D14" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D15" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D16" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D17" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D18" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D19" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D20" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D21" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D22" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D23" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D24" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D25" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D26" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D27" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D28" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D29" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D30" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D31" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D32" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D33" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D34" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D35" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D36" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D37" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D38" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D39" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D40" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D41" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D42" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D43" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D44" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D45" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D46" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D47" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D48" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D49" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D50" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D51" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D52" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D53" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D54" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D55" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D56" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D57" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D58" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D59" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D60" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D61" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D62" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D63" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D64" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D65" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D66" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D67" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D68" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D69" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D70" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D71" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D72" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D73" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D74" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D75" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D76" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D77" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D78" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D79" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D80" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D81" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D82" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D83" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D84" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D85" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D86" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D87" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D88" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D89" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D90" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D91" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D92" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D93" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D94" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="Line2D95" type="Line2D" parent="lines"]
+top_level = true
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_jec6l")
+points = PackedVector2Array(0, 0, 25, 0)
+width = 15.0
+texture = ExtResource("6_ohr2t")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -21)
+shape = SubResource("CapsuleShape2D_n13pa")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 1232
+offset_left = -76.0
+offset_top = -15.0
+offset_right = 89.0
+offset_bottom = 13.0
+scale = Vector2(0.998347, 1.26436)
+theme_override_fonts/normal_font = ExtResource("7_s360j")
+text = "E to become greater"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

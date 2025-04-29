@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2atuxpi3d3w"]
+
+[ext_resource type="Script" path="res://scripts_not_monster/dialogue_area.gd" id="1_uac2e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_403n6"]
+
+[node name="Dialogue_area" type="Area2D"]
+script = ExtResource("1_uac2e")
+dialogue = Array[String](["Even though the subject is considered weak", "It is believed to be able to fit into much smaller spaces"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_403n6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
