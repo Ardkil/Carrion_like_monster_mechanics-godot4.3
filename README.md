@@ -1,6 +1,8 @@
 # Carrion_like_monster_mechanics-godot4.3
 source code of a 48 hour gamejam game where i remade controls like carrion, you can check it all out, or just the monster file in order to learn how it is done in code, I will also be explaining the logic behind it here
 
+https://github.com/user-attachments/assets/edd5eba2-68d5-461a-b2b8-51a7e9c5782f
+
 For the body part, each body is connected by super aggressive springs in the order worm, and then are connected to the middle of the worm via a less aggressive spring, this ensures that the creature will be round if possible, but can also fit into small spaces like a worm, moreover, the worm is updated so that each body part is connected to the closest body part so that it won't be stuck in a circular motion
 
 for it to look like a whole creature, each body part draws a vein to the closest to them initially, and a random body part later
@@ -11,7 +13,3 @@ Each body part sends out rays in a circle in order to get points where they can 
 If you are idle, all body parts are pulled towards the tentacles they have shot
 
 for the pick up part, within a certain range, a rope like line created with verlet integration is drawn to a pickupable object, then the object is added as our item and is moved towards the mouse within the range
-
-
-https://github.com/user-attachments/assets/edd5eba2-68d5-461a-b2b8-51a7e9c5782f
-
